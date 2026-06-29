@@ -1,0 +1,19 @@
+{
+  "name": "playwrightdcrm",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {},
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "@playwright/test": "^1.60.0",
+    "@types/node": "^25.9.1",
+    "@types/papaparse": "^5.5.2"
+  },
+  "dependencies": {
+    "papaparse": "^5.5.3"
+  }
+}

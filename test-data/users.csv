@@ -1,0 +1,16 @@
+environment,role,userid,username,password,status
+
+dubai,salesmanager,SalesManager1,salemanager.dubai@tinttoneandshade.com,Salemanager@12345,active
+dubai,storehead,StoreHead1,storehead.dubai@tts.com,Storehead@12345,active
+dubai,presalemanager,PSM1,psm.dubai@tinttoneandshade.com,Psm@12345,active
+dubai,isa,ISA1,isa1.dubai@tts.com ,Isa1@12345,active
+dubai,isa,ISA2,isa2.dubai@tts.com ,Isa2@12345,active
+dubai,isa,ISA3,isa3.dubai@tts.com ,Isa3@12345,active
+staging,isa,ISA,isa@tts.com,Isa@12345,active
+staging,isa,ISA02,isa02@tts.com,Isa02@12345,active
+staging,isa,ISA03,isaom03@tts.com,Isaom03@12345,active
+staging,isa,ISA04,isaom04@tts.com,Isaom04@12345,active
+staging,presalemanager,PSM1,psm@tts.com ,Psm@12345,active
+staging,salesmanager,SalesManager1,sm@tts.com ,Sm@12345,active
+staging,storehead,StoreHead1,sh@tts.com ,Sh@12345,active
+
