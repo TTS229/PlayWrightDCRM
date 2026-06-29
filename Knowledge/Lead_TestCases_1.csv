@@ -1,0 +1,329 @@
+﻿TS_NL_01,New Lead Popup — UI Verification,,,,,
+TestCaseID,TC_NL_01_01,,,,,
+TestCaseName,New Lead popup opens from Lead page with correct title and subtitle,,,,,
+BaseURL,https://crm.tinttoneandshade.com,,,,,
+PreCondition,Logged in as Pre-Sales Manager or any role with lead creation access; on Leads list page,,,,,
+Priority-Severity,High-Critical,,,,,
+TestingType,Positive,,,,,
+SI.No,Description,TestData,ExpectedResult,ActualResult,Status,DefectComments
+1,"Navigate to Leads page; locate and click ""New Lead"" button",Role: Pre-Sales Manager,New Lead popup/modal opens,,,NA
+2,Verify popup title,,"Title = ""New Lead"" displayed at top of popup",,,NA
+3,Verify subtitle text,,"Subtitle = ""Contact will be created automatically if new"" visible below title",,,NA
+4,Verify ISA auto-assign note visible,,"Text ""If left empty, system will auto-assign based on load balancing"" visible in popup",,,NA
+5,Verify Cancel and Create Lead buttons present,,"Both ""Cancel"" and ""Create Lead"" buttons visible at bottom of popup",,,NA
+,,,,,,
+TS_NL_01,New Lead Popup — UI Verification,,,,,
+TestCaseID,TC_NL_01_02,,,,,
+TestCaseName,New Lead popup — scroll to verify all sections visible,,,,,
+BaseURL,https://crm.tinttoneandshade.com,,,,,
+PreCondition,New Lead popup open,,,,,
+Priority-Severity,High-High,,,,,
+TestingType,Positive,,,,,
+SI.No,Description,TestData,ExpectedResult,ActualResult,Status,DefectComments
+1,Scroll up in popup; verify Contact Information section fields,,"Contact Information section visible with: First Name* (mandatory), Middle Name, Last Name, Phone* (mandatory), Email fields",,,NA
+2,Verify Lead Details section fields,,"Lead Details section visible with: City* (mandatory), Project Type* (mandatory), Budget Range, Lead Source, Configuration fields",,,NA
+3,Scroll down; verify Description/Notes section,,"Description/Notes text area visible with placeholder ""Brief notes about this enquiry...""",,,NA
+4,Verify Attribution section visible,,"Attribution section visible with header ""ATTRIBUTION""",,,NA
+5,Verify all Attribution fields present,"Expected fields: Channel* (mandatory), Lead Funnel* (mandatory), Source* (mandatory), Campaign Source* (mandatory), Lead Source* (mandatory)",All 5 Attribution fields visible with mandatory asterisk (*) markers,,,NA
+,,,,,,
+TS_NL_01,New Lead Popup — UI Verification,,,,,
+TestCaseID,TC_NL_01_03,,,,,
+TestCaseName,New Lead popup has scrollable content area,,,,,
+BaseURL,https://crm.tinttoneandshade.com,,,,,
+PreCondition,New Lead popup open,,,,,
+Priority-Severity,Medium-Medium,,,,,
+TestingType,Positive,,,,,
+SI.No,Description,TestData,ExpectedResult,ActualResult,Status,DefectComments
+1,Observe popup layout,,Popup has a scrollable content area; scroll indicator visible on right side; Cancel and Create Lead buttons fixed at bottom regardless of scroll position,,,NA
+2,Scroll to bottom of popup,,Lead Source field fully visible at bottom; no content cut off,,,NA
+,,,,,,
+TS_NL_02,Description / Notes Field,,,,,
+TestCaseID,TC_NL_02_01,,,,,
+TestCaseName,Description/Notes field — optional; accepts free text,,,,,
+BaseURL,https://crm.tinttoneandshade.com,,,,,
+PreCondition,New Lead popup open,,,,,
+Priority-Severity,Medium-Medium,,,,,
+TestingType,Positive,,,,,
+SI.No,Description,TestData,ExpectedResult,ActualResult,Status,DefectComments
+1,Locate Description/Notes text area in popup,,"Text area visible with placeholder ""Brief notes about this enquiry...""; no mandatory (*) marker",,,NA
+2,Enter free text notes,"Notes: ""Client called regarding 3BHK interior; budget around 15L; follow up on Monday""",Text area accepts multi-line input without restriction,,,NA
+3,Create lead with notes filled,All mandatory fields + notes filled,Lead created successfully; notes saved on lead record,,,NA
+4,Open created lead; verify notes visible,,Description/Notes field on lead detail page shows the text entered during creation,,,NA
+,,,,,,
+TS_NL_02,Description / Notes Field,,,,,
+TestCaseID,TC_NL_02_02,,,,,
+TestCaseName,Description/Notes field — create lead without notes (optional check),,,,,
+BaseURL,https://crm.tinttoneandshade.com,,,,,
+PreCondition,New Lead popup open,,,,,
+Priority-Severity,Medium-Medium,,,,,
+TestingType,Positive,,,,,
+SI.No,Description,TestData,ExpectedResult,ActualResult,Status,DefectComments
+1,Fill all mandatory fields; leave Description/Notes empty,Notes: (empty),Notes field left blank; no validation error on Notes,,,NA
+2,Click Create Lead,,Lead created successfully without notes; no error for empty Notes field,,,NA
+,,,,,,
+TS_NL_03,Attribution — Channel Field,,,,,
+TestCaseID,TC_NL_03_01,,,,,
+TestCaseName,Channel dropdown — mandatory; verify options,,,,,
+BaseURL,https://crm.tinttoneandshade.com,,,,,
+PreCondition,New Lead popup open; Attribution section visible,,,,,
+Priority-Severity,High-High,,,,,
+TestingType,Positive,,,,,
+SI.No,Description,TestData,ExpectedResult,ActualResult,Status,DefectComments
+1,Click Channel dropdown in Attribution section,,"Channel dropdown expands with available options (e.g., Digital, Walk-in, Social Media, Events, Referral, etc.)",,,NA
+2,Verify all Channel options listed,,All configured channel options visible; no duplicates; single selection only,,,NA
+3,Select a Channel option,Channel: Digital,"""Digital"" selected; dropdown shows selected value",,,NA
+,,,,,,
+TS_NL_03,Attribution — Channel Field,,,,,
+TestCaseID,TC_NL_03_02,,,,,
+TestCaseName,Channel field — mandatory validation,,,,,
+BaseURL,https://crm.tinttoneandshade.com,,,,,
+PreCondition,New Lead popup open; all other fields filled,,,,,
+Priority-Severity,High-High,,,,,
+TestingType,Negative,,,,,
+SI.No,Description,TestData,ExpectedResult,ActualResult,Status,DefectComments
+1,"Fill all mandatory fields except Channel; leave Channel at default ""Select channel...""",Channel: (not selected),Channel field shows placeholder,,,NA
+2,Click Create Lead,,"Validation error on Channel field: ""Channel is required""; lead NOT created",,,NA
+,,,,,,
+TS_NL_04,Attribution — Lead Funnel Field (New Feature — Not in PRD),,,,,
+TestCaseID,TC_NL_04_01,,,,,
+TestCaseName,Lead Funnel dropdown — mandatory; verify options present,,,,,
+BaseURL,https://crm.tinttoneandshade.com,,,,,
+PreCondition,New Lead popup open; Attribution section visible,,,,,
+Priority-Severity,High-High,,,,,
+TestingType,Positive,,,,,
+SI.No,Description,TestData,ExpectedResult,ActualResult,Status,DefectComments
+1,Click Lead Funnel dropdown in Attribution section,,Lead Funnel dropdown expands with available funnel stage options,,,NA
+2,Verify all Lead Funnel options listed,[NOTE: Options not in PRD — document actual values found in dropdown for test evidence],All funnel options visible; no duplicates; single selection; options to be confirmed with BA/Dev since not in PRD,,,NA
+3,Select a Lead Funnel option,Lead Funnel: (select first available option),Selected value displayed in dropdown,,,NA
+,,,,,,
+TS_NL_04,Attribution — Lead Funnel Field (New Feature — Not in PRD),,,,,
+TestCaseID,TC_NL_04_02,,,,,
+TestCaseName,Lead Funnel field — mandatory validation,,,,,
+BaseURL,https://crm.tinttoneandshade.com,,,,,
+PreCondition,New Lead popup open; all other fields filled,,,,,
+Priority-Severity,High-High,,,,,
+TestingType,Negative,,,,,
+SI.No,Description,TestData,ExpectedResult,ActualResult,Status,DefectComments
+1,"Fill all mandatory fields except Lead Funnel; leave at ""Select funnel...""",Lead Funnel: (not selected),Field shows placeholder,,,NA
+2,Click Create Lead,,"Validation error: ""Lead Funnel is required""; lead NOT created",,,NA
+,,,,,,
+TS_NL_04,Attribution — Lead Funnel Field (New Feature — Not in PRD),,,,,
+TestCaseID,TC_NL_04_03,,,,,
+TestCaseName,Lead Funnel value saved and visible on lead detail page,,,,,
+BaseURL,https://crm.tinttoneandshade.com,,,,,
+PreCondition,New Lead popup open; all mandatory fields including Lead Funnel filled,,,,,
+Priority-Severity,High-High,,,,,
+TestingType,Positive,,,,,
+SI.No,Description,TestData,ExpectedResult,ActualResult,Status,DefectComments
+1,Select Lead Funnel value,Lead Funnel: (selected value),Value selected,,,NA
+2,Fill all other mandatory fields; click Create Lead,,Lead created successfully,,,NA
+3,Open created lead; verify Lead Funnel field visible and correct,,Lead Funnel field on lead detail page shows the value selected during creation; not lost,,,NA
+,,,,,,
+TS_NL_05,Attribution — Source Field,,,,,
+TestCaseID,TC_NL_05_01,,,,,
+TestCaseName,Source dropdown — mandatory; options verified,,,,,
+BaseURL,https://crm.tinttoneandshade.com,,,,,
+PreCondition,New Lead popup open; Channel selected,,,,,
+Priority-Severity,High-High,,,,,
+TestingType,Positive,,,,,
+SI.No,Description,TestData,ExpectedResult,ActualResult,Status,DefectComments
+1,Click Source dropdown,,"Source dropdown expands with traffic source options (e.g., Google, Facebook, Instagram, Direct, etc.)",,,NA
+2,Verify all Source options,,"All configured source values listed; consistent with PRD: ""Traffic source e.g. Google, Facebook""",,,NA
+3,Select a source,Source: Google,"""Google"" selected and displayed",,,NA
+,,,,,,
+TS_NL_05,Attribution — Source Field,,,,,
+TestCaseID,TC_NL_05_02,,,,,
+TestCaseName,Source field — mandatory validation,,,,,
+BaseURL,https://crm.tinttoneandshade.com,,,,,
+PreCondition,New Lead popup; all other fields filled,,,,,
+Priority-Severity,High-High,,,,,
+TestingType,Negative,,,,,
+SI.No,Description,TestData,ExpectedResult,ActualResult,Status,DefectComments
+1,Leave Source unselected; fill all other fields; click Create Lead,Source: (not selected),"Validation error: ""Source is required""; lead NOT created",,,NA
+,,,,,,
+TS_NL_05,Attribution — Source Field,,,,,
+TestCaseID,TC_NL_05_03,,,,,
+TestCaseName,Source options change based on Channel selection (if dependent),,,,,
+BaseURL,https://crm.tinttoneandshade.com,,,,,
+PreCondition,New Lead popup; Channel selected,,,,,
+Priority-Severity,Medium-High,,,,,
+TestingType,Positive,,,,,
+SI.No,Description,TestData,ExpectedResult,ActualResult,Status,DefectComments
+1,Select Channel = Digital; observe Source options,Channel: Digital,"Source dropdown shows options relevant to Digital channel (e.g., Google, Facebook, Instagram)",,,NA
+2,Change Channel = Walk-in; observe Source options,Channel: Walk-in,Source options change to Walk-in relevant sources OR remain same — document actual behavior; verify Channel → Source dependency if any,,,NA
+,,,,,,
+TS_NL_06,Attribution — Campaign Source Field,,,,,
+TestCaseID,TC_NL_06_01,,,,,
+TestCaseName,Campaign Source dropdown — mandatory; options verified,,,,,
+BaseURL,https://crm.tinttoneandshade.com,,,,,
+PreCondition,New Lead popup open,,,,,
+Priority-Severity,High-High,,,,,
+TestingType,Positive,,,,,
+SI.No,Description,TestData,ExpectedResult,ActualResult,Status,DefectComments
+1,Click Campaign Source dropdown,,Campaign Source dropdown expands with configured campaign options,,,NA
+2,Verify options present,"[Document actual values — PRD says ""Campaign name/ID""]",Campaign options listed; no duplicates; single selection,,,NA
+3,Select a Campaign Source,Campaign Source: (first available),Selected value displayed in field,,,NA
+,,,,,,
+TS_NL_06,Attribution — Campaign Source Field,,,,,
+TestCaseID,TC_NL_06_02,,,,,
+TestCaseName,Campaign Source — mandatory validation,,,,,
+BaseURL,https://crm.tinttoneandshade.com,,,,,
+PreCondition,New Lead popup; all other fields filled,,,,,
+Priority-Severity,High-High,,,,,
+TestingType,Negative,,,,,
+SI.No,Description,TestData,ExpectedResult,ActualResult,Status,DefectComments
+1,Leave Campaign Source unselected; fill all other fields; click Create Lead,Campaign Source: (not selected),"Validation error: ""Campaign Source is required""; lead NOT created",,,NA
+,,,,,,
+TS_NL_07,Attribution — Lead Source Field,,,,,
+TestCaseID,TC_NL_07_01,,,,,
+TestCaseName,Lead Source dropdown in Attribution — mandatory; verify options,,,,,
+BaseURL,https://crm.tinttoneandshade.com,,,,,
+PreCondition,New Lead popup open,,,,,
+Priority-Severity,High-High,,,,,
+TestingType,Positive,,,,,
+SI.No,Description,TestData,ExpectedResult,ActualResult,Status,DefectComments
+1,Click Lead Source dropdown in Attribution section,,Lead Source dropdown expands,,,NA
+2,Verify all Lead Source options,"Expected (from previous knowledge): Google Ads, Facebook Ads, Organic, Referral, Walk-in, Others",All Lead Source options listed; consistent with Quick Add Lead popup dropdown values,,,NA
+3,Select Lead Source,Lead Source: Google Ads,"""Google Ads"" selected and displayed",,,NA
+,,,,,,
+TS_NL_07,Attribution — Lead Source Field,,,,,
+TestCaseID,TC_NL_07_02,,,,,
+TestCaseName,Lead Source — mandatory validation,,,,,
+BaseURL,https://crm.tinttoneandshade.com,,,,,
+PreCondition,New Lead popup; all other fields filled,,,,,
+Priority-Severity,High-High,,,,,
+TestingType,Negative,,,,,
+SI.No,Description,TestData,ExpectedResult,ActualResult,Status,DefectComments
+1,Leave Lead Source unselected; fill all other fields; click Create Lead,Lead Source: (not selected),"Validation error: ""Lead Source is required""; lead NOT created",,,NA
+,,,,,,
+TS_NL_08,New Lead Popup — Full Creation Flow,,,,,
+TestCaseID,TC_NL_08_01,,,,,
+TestCaseName,Create lead with all mandatory fields including all Attribution fields,,,,,
+BaseURL,https://crm.tinttoneandshade.com,,,,,
+PreCondition,Logged in as Pre-Sales Manager; on Leads page,,,,,
+Priority-Severity,High-Critical,,,,,
+TestingType,Positive,,,,,
+SI.No,Description,TestData,ExpectedResult,ActualResult,Status,DefectComments
+1,Click New Lead button on Leads page,,New Lead popup opens,,,NA
+2,Fill Contact Information — First Name and Phone,First Name: Rajesh | Phone: 9876540001,Fields accept input,,,NA
+3,Fill Lead Details — City and Project Type,City: Chennai | Project Type: Residential,Dropdowns accept selections,,,NA
+4,Fill Description/Notes (optional),"Notes: ""Client inquired about 2BHK full interior""",Text area accepts input,,,NA
+5,Fill all Attribution mandatory fields,Channel: Digital | Lead Funnel: (select value) | Source: Google | Campaign Source: Summer2024 | Lead Source: Google Ads,All 5 Attribution dropdowns accept selections,,,NA
+6,Click Create Lead,,"Lead created successfully; toast ""Lead created successfully"" shown; popup closes",,,NA
+7,Open created lead; verify all Attribution fields saved,,"Lead detail page shows: Channel = Digital, Lead Funnel = selected value, Source = Google, Campaign Source = Summer2024, Lead Source = Google Ads",,,NA
+,,,,,,
+TS_NL_08,New Lead Popup — Full Creation Flow,,,,,
+TestCaseID,TC_NL_08_02,,,,,
+TestCaseName,Create lead with all fields including optional fields,,,,,
+BaseURL,https://crm.tinttoneandshade.com,,,,,
+PreCondition,Logged in as Pre-Sales Manager; on Leads page,,,,,
+Priority-Severity,High-High,,,,,
+TestingType,Positive,,,,,
+SI.No,Description,TestData,ExpectedResult,ActualResult,Status,DefectComments
+1,Open New Lead popup; fill all Contact Information fields,First Name: Meena | Middle Name: R | Last Name: Kumar | Phone: 9876540002 | Email: meena@example.com,All contact fields accept input,,,NA
+2,Fill all Lead Details fields,City: Hyderabad | Project Type: Residential | Budget Range: 10L-25L | Lead Source: Referral | Configuration: 2BHK,All fields accept input,,,NA
+3,Fill Description/Notes,"Notes: ""Referred by existing client; very interested""",Notes accepted,,,NA
+4,Fill all Attribution fields,Channel: Walk-in | Lead Funnel: (value) | Source: Direct | Campaign Source: Referral2024 | Lead Source: Referral,All dropdowns accept selections,,,NA
+5,Click Create Lead,,Lead created; all optional fields saved; Contact auto-created for phone 9876540002,,,NA
+,,,,,,
+TS_NL_08,New Lead Popup — Full Creation Flow,,,,,
+TestCaseID,TC_NL_08_03,,,,,
+TestCaseName,Create lead — all mandatory Attribution fields missing simultaneously,,,,,
+BaseURL,https://crm.tinttoneandshade.com,,,,,
+PreCondition,New Lead popup open; Contact and Lead Details filled,,,,,
+Priority-Severity,High-High,,,,,
+TestingType,Negative,,,,,
+SI.No,Description,TestData,ExpectedResult,ActualResult,Status,DefectComments
+1,Fill Contact Information and Lead Details only; leave ALL Attribution fields empty,Channel: (empty) | Lead Funnel: (empty) | Source: (empty) | Campaign Source: (empty) | Lead Source: (empty),Attribution fields all at placeholder/default,,,NA
+2,Click Create Lead,,Multiple validation errors displayed for all mandatory Attribution fields; lead NOT created; all errors shown simultaneously or one by one,,,NA
+,,,,,,
+TS_NL_08,New Lead Popup — Full Creation Flow,,,,,
+TestCaseID,TC_NL_08_04,,,,,
+TestCaseName,Cancel button closes popup without creating lead,,,,,
+BaseURL,https://crm.tinttoneandshade.com,,,,,
+PreCondition,New Lead popup open; some fields filled,,,,,
+Priority-Severity,Medium-Medium,,,,,
+TestingType,Positive,,,,,
+SI.No,Description,TestData,ExpectedResult,ActualResult,Status,DefectComments
+1,Fill some fields in New Lead popup,First Name: Cancel Test | Phone: 9876540003,Fields filled,,,NA
+2,Click Cancel button,,"Popup closes; no lead created; Leads list unchanged; no ""Cancel Test"" lead in list",,,NA
+,,,,,,
+TS_NL_08,New Lead Popup — Full Creation Flow,,,,,
+TestCaseID,TC_NL_08_05,,,,,
+TestCaseName,Close button (X) closes popup without creating lead,,,,,
+BaseURL,https://crm.tinttoneandshade.com,,,,,
+PreCondition,New Lead popup open,,,,,
+Priority-Severity,Medium-Medium,,,,,
+TestingType,Positive,,,,,
+SI.No,Description,TestData,ExpectedResult,ActualResult,Status,DefectComments
+1,Fill some fields; click X button at top-right of popup,,Popup closes; no lead created; identical behavior to Cancel button,,,NA
+,,,,,,
+TS_NL_09,ISA Auto-Assignment — Load Balancing,,,,,
+TestCaseID,TC_NL_09_01,,,,,
+TestCaseName,Lead created without ISA — auto-assigned via round-robin load balancing,,,,,
+BaseURL,https://crm.tinttoneandshade.com,,,,,
+PreCondition,Multiple ISA agents active and under cap; logged in as Pre-Sales Manager,,,,,
+Priority-Severity,High-Critical,,,,,
+TestingType,Positive,,,,,
+SI.No,Description,TestData,ExpectedResult,ActualResult,Status,DefectComments
+1,Create lead via New Lead popup; leave ISA field empty,"ISA Owner: (left empty) — ""If left empty, system will auto-assign based on load balancing""",Lead created; system triggers round-robin assignment,,,NA
+2,Open created lead; check ISA Owner field,,ISA Owner auto-populated with an available ISA agent; not blank,,,NA
+3,Create second lead; leave ISA empty again,ISA: (empty),Second lead assigned to next ISA in round-robin cycle; different from first if multiple agents available,,,NA
+4,Create third lead; verify round-robin pattern,ISA: (empty),Round-robin cycles correctly: A→B→C→A; agents at cap are skipped,,,NA
+,,,,,,
+TS_NL_09,ISA Auto-Assignment — Load Balancing,,,,,
+TestCaseID,TC_NL_09_02,,,,,
+TestCaseName,Pre-Sales Manager manually assigns ISA — overrides auto-assignment,,,,,
+BaseURL,https://crm.tinttoneandshade.com,,,,,
+PreCondition,New Lead popup open; ISA field visible,,,,,
+Priority-Severity,High-Critical,,,,,
+TestingType,Positive,,,,,
+SI.No,Description,TestData,ExpectedResult,ActualResult,Status,DefectComments
+1,In New Lead popup; locate ISA assignment field,,ISA assignment dropdown/field visible in popup,,,NA
+2,Select a specific ISA manually,ISA Owner: ISA Agent 02,"ISA Agent 02 selected; ""If left empty..."" note no longer applies",,,NA
+3,Create lead,,Lead created with ISA Agent 02 assigned; round-robin NOT triggered; manual assignment takes priority,,,NA
+4,Verify ISA on created lead,,Lead detail page shows ISA Owner = ISA Agent 02 as manually selected,,,NA
+,,,,,,
+TS_NL_09,ISA Auto-Assignment — Load Balancing,,,,,
+TestCaseID,TC_NL_09_03,,,,,
+TestCaseName,All ISA agents at cap — auto-assignment behavior,,,,,
+BaseURL,https://crm.tinttoneandshade.com,,,,,
+PreCondition,All ISA agents have reached their daily lead cap; logged in as Pre-Sales Manager,,,,,
+Priority-Severity,High-High,,,,,
+TestingType,Positive,,,,,
+SI.No,Description,TestData,ExpectedResult,ActualResult,Status,DefectComments
+1,Create lead with ISA left empty when all agents are at cap,ISA: (empty),System attempts round-robin; all agents at cap → lead still created but ISA may be unassigned OR assigned with over-limit alert per PRD Section 4.4,,,NA
+2,Verify Pre-Sales Manager gets alert,,"Alert shown to Pre-Sales Manager: ""All agents at capacity"" or similar; lead created without ISA or with over-limit assignment",,,NA
+,,,,,,
+TS_NL_09,ISA Auto-Assignment — Load Balancing,,,,,
+TestCaseID,TC_NL_09_04,,,,,
+TestCaseName,Agent on leave — skipped in round-robin assignment,,,,,
+BaseURL,https://crm.tinttoneandshade.com,,,,,
+PreCondition,ISA Agent 01 marked On Leave; ISA Agent 02 available; creating lead,,,,,
+Priority-Severity,High-High,,,,,
+TestingType,Positive,,,,,
+SI.No,Description,TestData,ExpectedResult,ActualResult,Status,DefectComments
+1,Create multiple leads with ISA left empty,ISA: (empty) — Agent 01 on leave,All leads auto-assigned to Agent 02 (or next available agent); Agent 01 consistently skipped in round-robin,,,NA
+,,,,,,
+TS_NL_10,Contact Auto-Creation from New Lead Popup,,,,,
+TestCaseID,TC_NL_10_01,,,,,
+TestCaseName,New unique phone in New Lead popup — Contact auto-created,,,,,
+BaseURL,https://crm.tinttoneandshade.com,,,,,
+PreCondition,Phone 9876599999 does not exist in system; logged in as Pre-Sales Manager,,,,,
+Priority-Severity,High-Critical,,,,,
+TestingType,Positive,,,,,
+SI.No,Description,TestData,ExpectedResult,ActualResult,Status,DefectComments
+1,Create lead via New Lead popup with new unique phone,Phone: 9876599999 | All mandatory fields filled,Lead created; toast success shown,,,NA
+2,Login as Admin; navigate to Contacts; search 9876599999,Role: Admin,"New Contact record auto-created with phone 9876599999; linked to new lead; ""Contact will be created automatically if new"" behavior confirmed",,,NA
+,,,,,,
+TS_NL_10,Contact Auto-Creation from New Lead Popup,,,,,
+TestCaseID,TC_NL_10_02,,,,,
+TestCaseName,Existing phone in New Lead popup — Contact NOT duplicated,,,,,
+BaseURL,https://crm.tinttoneandshade.com,,,,,
+PreCondition,Contact with phone 9000000001 already exists,,,,,
+Priority-Severity,High-Critical,,,,,
+TestingType,Positive,,,,,
+SI.No,Description,TestData,ExpectedResult,ActualResult,Status,DefectComments
+1,Create lead via New Lead popup with existing phone,Phone: 9000000001 | City: Chennai,Lead created (or re-enquiry triggered based on duplicate logic),,,NA
+2,Login as Admin; check Contacts for phone 9000000001,,Still only ONE Contact for 9000000001; no duplicate Contact created; new lead linked to existing Contact,,,NA
+,,,,,,

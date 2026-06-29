@@ -1,0 +1,492 @@
+﻿TS_04,Pre-Sales Lead Stage Progression,,,,,
+TestCaseID,TC_04_01,,,,,
+TestCaseName,PS-02: Move Fesh lead from  to Connected,,,,,
+BaseURL,https://tts-crm-ochre.vercel.app,,,,,
+PreCondition,"User should be ISA , Lead status = Fresh Lead;",,,,,
+Priority-Severity,High-Critical,,,,,
+TestingType,Positive,,,,,
+SI.No,Description,TestData,ExpectedResult,ActualResult,Status,DefectComments
+1,click the Lead from theLeads page,,User should land on Leads Overview page,User should land on Leads Overview page,pass,NA
+2,"Change status to ""Connected""",Status: Connected,"Sub-status dropdown appears with Connected sub-statuses: Requirement Discussion, Callback Requested, Follow-up Pending, Interested, Exploring Options, No Immediate Requirement, Not Qualified, Junk and ""Requirement Discussion"" should be auto selected","Sub-status dropdown appears with Connected sub-statuses: Requirement Discussion, Callback Requested, Follow-up Pending, Interested, Exploring Options, No Immediate Requirement, Not Qualified, Junk and ""Requirement Discussion"" should be auto selected",pass,NA
+3,"Next follow-up date and time and Budget Range should become Mandatory fields, set the required fields",Follow-up Date and Time : Set TimeStamp," Next follow-up date and time and Budget Range should become Mandatory fields, Date and time accepted"," Next follow-up date and time and Budget Range should become Mandatory fields, Date and time accepted",pass,NA
+4,Click Save,,Lead saved; stage bar highlights Connected; Leads Page logs transition from Fresh Lead to Connected,Lead saved; stage bar highlights Connected; Lead page logs transition from Fresh Lead to Connected,pass,NA
+Author : ,Mary Ferdinant Samson S,,,,,
+Reviewed By :,,,,,,
+Creation Date :,15-05-2026,,,,,
+Revision Date :,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+TS_04,Pre-Sales Lead Stage Progression,,,,,
+TestCaseID,TC_04_02,,,,,
+TestCaseName,PS-08: Move lead from Connected to Qualified,,,,,
+BaseURL,https://tts-crm-ochre.vercel.app,,,,,
+PreCondition,Lead status = Connected; logged in as ISA,,,,,
+Priority-Severity,High-Critical,,,,,
+TestingType,Positive,,,,,
+SI.No,Description,TestData,ExpectedResult,ActualResult,Status,DefectComments
+1,click the Lead from theLeads page,,User should land on Leads Overview page,User should land on Leads Overview page,pass,NA
+2,"Change status to ""Qualfied""",Status: Qualified,"Sub-status dropdown appears with Qualified sub-statuses: Consultation Recommended, Follow-up Ongoing, Considering Options, Discussing Internally, Awaiting Confirmation. And Consultation Recommended can be autoselected","Sub-status dropdown appears with Qualified sub-statuses: Consultation Recommended, Follow-up Ongoing, Considering Options, Discussing Internally, Awaiting Confirmation.",pass,NA
+3,Click Save,,Lead saved; stage bar highlights Qualified; Lead Page logs transition from Connected to Qualified,Lead saved; stage bar highlights Qualified; Lead Page logs transition from Connected to Qualified,pass,NA
+Author : ,Mary Ferdinant Samson S,,,,,
+Reviewed By :,,,,,,
+Creation Date :,15-05-2026,,,,,
+Revision Date :,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+TS_04,Pre-Sales Lead Stage Progression,,,,,
+TestCaseID,TC_04_03,,,,,
+TestCaseName,PS-09: Move lead from Qualified to Meeting Scheduled,,,,,
+BaseURL,https://tts-crm-ochre.vercel.app,,,,,
+PreCondition,Lead status = Qualified; qualification fields filled; email captured; logged in ISA,,,,,
+Priority-Severity,High-Critical,,,,,
+TestingType,Positive,,,,,
+SI.No,Description,TestData,ExpectedResult,ActualResult,Status,DefectComments
+1,click the Lead from theLeads page,,User should land on Leads Overview page,User should land on Leads Overview page,pass,NA
+2,"Change status to ""Meeting Scheduled""","Status: ""Meeting Scheduled""","Sub-status dropdown appears with Meeting Scheduled  sub-statuses: Store visit Scheduled, Site Visit Scheduled, Confirmation Pending, Follow-up Pending, Rescheduled, No show, Lost and Confirmation Pending is Autoselected","Sub-status dropdown appears with Meeting Scheduled  sub-statuses: Store visit Scheduled, Site Visit Scheduled, Confirmation Pending, Follow-up Pending, Rescheduled, No show, Lost and Confirmation Pending is Autoselected",pass,NA
+3,"Meeting type and Preferred Meeting Time should become Mandatory fields; Meeting Type DropDown : Store visit, Site visit, Virtual",Meeting type : Store Visit and Meeting Time : Date and Time,Meeting Type and Meeting Time Accepted,Meeting Type and Meeting Time Accepted,pass,NA
+4,Click Save,,Lead saved; stage bar highlights Meeting Scheduled; Lead pagelogs transition from Qualified to Meeting Scheduled,Lead saved; stage bar highlights Meeting Scheduled; Lead Page logs transition from Qualified to Meeting Scheduled,pass,NA
+Author : ,Mary Ferdinant Samson S,,,,,
+Reviewed By :,,,,,,
+Creation Date :,15-05-2026,,,,,
+Revision Date :,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+TS_04,Pre-Sales Lead Stage Progression,,,,,
+TestCaseID,TC_04_04,,,,,
+TestCaseName,Stage bar color changes on each status transition,,,,,
+BaseURL,https://tts-crm-ochre.vercel.app,,,,,
+PreCondition,Lead exists; logged in as ISA,,,,,
+Priority-Severity,Medium-Medium,,,,,
+TestingType,Positive,,,,,
+SI.No,Description,TestData,ExpectedResult,ActualResult,Status,DefectComments
+1,Open lead in Fresh Lead stage; observe stage bar,,Fresh Lead segment is highlighted/active color; remaining segments are inactive,Fresh Lead segment is highlighted/active color; remaining segments are inactive,pass,NA
+2,Move to Connected; observe stage bar,Status: Connected,Connected segment now highlighted; Fresh Lead shows completed color; remaining inactive,Connected segment now highlighted; Fresh Lead shows completed color; remaining inactive,pass,NA
+3,Move to Qualified; observe stage bar,Status: Qualified,Qualified segment highlighted; previous stages show completed color,Qualified segment highlighted; previous stages show completed color,pass,NA
+4,Move to Meeting Scheduled; observe stage bar,Status: Meeting Scheduled,Meeting Scheduled segment highlighted; all previous segments show completed color,Meeting Scheduled segment highlighted; all previous segments show completed color,pass,NA
+Author : ,Mary Ferdinant Samson S,,,,,
+Reviewed By :,,,,,,
+Creation Date :,15-05-2026,,,,,
+Revision Date :,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+TS_04,Pre-Sales Lead Stage Progression,,,,,
+TestCaseID,TC_04_05,,,,,
+TestCaseName,Activity History logs every stage change,,,,,
+BaseURL,https://tts-crm-ochre.vercel.app,,,,,
+PreCondition,Lead exists at Fresh Lead; logged in as ISA,,,,,
+Priority-Severity,High-High,,,,,
+TestingType,Positive,,,,,
+SI.No,Description,TestData,ExpectedResult,ActualResult,Status,DefectComments
+1,Open lead; observe Leads List,,Leads Lists  visible on of lead page,Leads Lists  visible on of lead page,pass,NA
+2,Change status from Fresh Lead to Connected; save,Status: Connected,"Leads page shows new entry: ""Status updated to Connected"" with timestamp , Status and Ownership","Leads page shows new entry: ""Status updated to Connected"" with timestamp , Status and Ownership",pass,NA
+3,Change status from Connected to Qualified; save,Status: Qualified,"Leads page shows new entry: ""Status updated to Qualified"" with timestamp , Status and Ownershipe","Leads page shows new entry: ""Status updated to Qualified"" with timestamp , Status and Ownershipe",pass,NA
+4,Change status from Qualified to Meeting Scheduled; save,Status: Meeting Scheduled,"Leads page shows new entry: ""Status updated to Meeting Scheduled"" with timestamp , Status and Ownership","Leads page shows new entry: ""Status updated to Meeting Scheduled"" with timestamp , Status and Ownership",pass,
+,Change status from Meeting Scheduled to Converted; save,Status: Converted,"Leads page shows new entry: ""Status updated to Converted"" with timestamp , Status and Ownership","Leads page shows new entry: ""Status updated to Converted"" with timestamp , Status and Ownership",pass,
+Author : ,Mary Ferdinant Samson S,,,,,
+Reviewed By :,,,,,,
+Creation Date :,15-05-2026,,,,,
+Revision Date :,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+TS_04,Pre-Sales Lead Stage Progression,,,,,
+TestCaseID,TC_04_06,,,,,
+TestCaseName,PS-03: Mark lead as Not Qualified with mandatory reason,,,,,
+BaseURL,https://tts-crm-ochre.vercel.app,,,,,
+PreCondition,Connected lead exists; logged in as ISA,,,,,
+Priority-Severity,High-High,,,,,
+TestingType,Positive,,,,,
+SI.No,Description,TestData,ExpectedResult,ActualResult,Status,DefectComments
+1,Open Connected lead,,Lead detail page; status = Connected,Lead detail page; status = Connected,pass,NA
+2,"Change sub-status to ""Not Qualified""",Sub Status: Not Qualified,Selected Dropdown Accepted,Selected Dropdown Accepted,pass,NA
+3,Select reason from dropdown,Reason: Budget Issue,Input accepted,Input accepted,pass,NA
+4,Click Save,,Lead saved with Not Qualified,Lead saved with Not Qualified,pass,NA
+Author : ,Mary Ferdinant Samson S,,,,,
+Reviewed By :,,,,,,
+Creation Date :,15-05-2026,,,,,
+Revision Date :,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+TS_04,Pre-Sales Lead Stage Progression,,,,,
+TestCaseID,TC_04_07,,,,,
+TestCaseName,PS-04: Mark lead as Junk with mandatory reason,,,,,
+BaseURL,https://tts-crm-ochre.vercel.app,,,,,
+PreCondition,Connected lead exists; logged in as Pre-Sales agent,,,,,
+Priority-Severity,High-High,,,,,
+TestingType,Positive,,,,,
+SI.No,Description,TestData,ExpectedResult,ActualResult,Status,DefectComments
+1,Open Connected lead,,Lead detail page; status = Connected,Lead detail page; status = Connected,pass,NA
+2,"Change sub-status to ""Not Qualified""",Sub Status: Junk,Selected Dropdown Accepted,Selected Dropdown Accepted,pass,NA
+3,Select reason from dropdown,Reason: Invalid Number,Input accepted,Input accepted,pass,NA
+4,Click Save,,Lead saved with Not Qualified,Lead saved with Not Qualified,pass,NA
+Author : ,Mary Ferdinant Samson S,,,,,
+Reviewed By :,,,,,,
+Creation Date :,15-05-2026,,,,,
+Revision Date :,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+TS_04,Pre-Sales Lead Stage Progression,,,,,
+TestCaseID,TC_04_09,,,,,
+TestCaseName,PS-10: Callback Requested with follow-up date — saved successfully,,,,,
+BaseURL,https://tts-crm-ochre.vercel.app,,,,,
+PreCondition,Connected lead exists; logged in as ISA,,,,,
+Priority-Severity,High-High,,,,,
+TestingType,Positive,,,,,
+SI.No,Description,TestData,ExpectedResult,ActualResult,Status,DefectComments
+1,Open Connected lead from leads page,,Lead detail page will be displayed,Lead detail page will be displayed,pass,NA
+2,"Set sub-status to ""Callback Requested""",Sub Status: Callback Requested,Follow-up date and time fields appear as mandatory,Follow-up date and time fields appear as mandatory,pass,NA
+3,Fill follow-up date and time,Follow-up Date: 2026-05-21 | Time: 03:00 PM,Date and time accepted,Date and time accepted,pass,NA
+4,Click Save,,Lead saved successfully; follow-up date/time persisted; Activity History updated,Lead saved successfully; follow-up date/time persisted; Activity History updated,pass,NA
+Author : ,Mary Ferdinant Samson S,,,,,
+Reviewed By :,,,,,,
+Creation Date :,15-05-2026,,,,,
+Revision Date :,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+TS_04,Pre-Sales Lead Stage Progression,,,,,
+TestCaseID,TC_04_10,,,,,
+TestCaseName,PS-10: Callback Requested without follow-up date — validation error,,,,,
+BaseURL,https://tts-crm-ochre.vercel.app,,,,,
+PreCondition,Connected lead exists; logged in as Pre-Sales agent,,,,,
+Priority-Severity,High-High,,,,,
+TestingType,Negative,,,,,
+SI.No,Description,TestData,ExpectedResult,ActualResult,Status,DefectComments
+1,Open Connected lead,,Lead detail page will be displayed,Lead detail page will be displayed,pass,NA
+2,"Set sub-status to ""Callback Requested""; leave follow-up date empty",Sub Status: Callback Requested | Follow-up Date: (empty),Follow-up date field empty,Follow-up date field empty,pass,NA
+3,Click Save,,"Warning Message : Information Required
+We need the following details to proceed: nextFollowUpDate.","Warning Message : Information Required
+We need the following details to proceed: nextFollowUpDate.",pass,NA
+Author : ,Mary Ferdinant Samson S,,,,,
+Reviewed By :,,,,,,
+Creation Date :,15-05-2026,,,,,
+Revision Date :,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+TS_04,Pre-Sales Lead Stage Progression,,,,,
+TestCaseID,TC_04_11,,,,,
+TestCaseName,PS-11: Follow-up Pending with follow-up date — saved successfully,,,,,
+BaseURL,https://tts-crm-ochre.vercel.app,,,,,
+PreCondition,Connected lead exists; logged in as Pre-Sales agent,,,,,
+Priority-Severity,High-High,,,,,
+TestingType,Positive,,,,,
+SI.No,Description,TestData,ExpectedResult,ActualResult,Status,DefectComments
+1,Open Connected lead,,Lead detail page will be displayed,Lead detail page will be displayed,pass,NA
+2,"Set sub-status to ""Follow-up Pending""",Sub Status: Follow-up Pending,Budget Range and Follow-up date and time appear as mandatory,Budget Range and Follow-up date and time appear as mandatory,pass,NA
+3,Select Budget Range from Dropdown and Fill follow-up date and time,"Budget Range , Follow-up Date: 2026-05-22 | Time: 11:00 AM",Budget Range and Date and time accepted,Budget Range and Date and time accepted,pass,NA
+4,Click Save,,Lead saved; follow-up date/time stored,Lead saved; follow-up date/time stored,pass,NA
+Author : ,Mary Ferdinant Samson S,,,,,
+Reviewed By :,,,,,,
+Creation Date :,15-05-2026,,,,,
+Revision Date :,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+TS_04,Pre-Sales Lead Stage Progression,,,,,
+TestCaseID,TC_04_12,,,,,
+TestCaseName,PS-12: No Immediate Requirement with follow-up date — saved successfully,,,,,
+BaseURL,https://tts-crm-ochre.vercel.app,,,,,
+PreCondition,Connected lead exists; logged in as ISA,,,,,
+Priority-Severity,High-High,,,,,
+TestingType,Positive,,,,,
+SI.No,Description,TestData,ExpectedResult,ActualResult,Status,DefectComments
+1,Open Connected lead,,Lead detail page will be displayed,Lead detail page will be displayed,pass,NA
+2,"Set sub-status to ""No Immediate Requirement""",Sub Status: No Immediate Requirement,Budget Range and Follow-up date and time appear as mandatory,Budget Range and Follow-up date and time appear as mandatory,pass,NA
+3,Select Budget Range from Dropdown and Fill follow-up date and time,"Budget Range , Follow-up Date: 2026-05-22 | Time: 11:00 AM",Budget Range and Date and time accepted,Budget Range and Date and time accepted,pass,NA
+4,Click Save,,Lead saved; follow-up date/time stored,Lead saved; follow-up date/time stored,pass,NA
+Author : ,Mary Ferdinant Samson S,,,,,
+Reviewed By :,,,,,,
+Creation Date :,15-05-2026,,,,,
+Revision Date :,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+TS_04,Pre-Sales Lead Stage Progression,,,,,
+TestCaseID,TC_04_13,,,,,
+TestCaseName,PS-12: No Immediate Requirement without follow-up date — validation error,,,,,
+BaseURL,https://tts-crm-ochre.vercel.app,,,,,
+PreCondition,Connected lead exists; logged in as ISA,,,,,
+Priority-Severity,High-High,,,,,
+TestingType,Negative,,,,,
+SI.No,Description,TestData,ExpectedResult,ActualResult,Status,DefectComments
+1,Open Connected lead,,Lead detail page will be displayed,Lead detail page will be displayed,pass,NA
+2,"Set sub-status to ""No Immediate Requirement""; leave follow-up date empty",Sub Status: No Immediate Requirement | Follow-up Date: (empty)| Budget Range : Under 5L,Follow-up date field empty,Follow-up date field empty,pass,NA
+3,Click Save,,"Warning Message : Information Required
+We need the following details to proceed: nextFollowUpDate.","Warning Message : Information Required
+We need the following details to proceed: nextFollowUpDate.",pass,NA
+Author : ,Mary Ferdinant Samson S,,,,,
+Reviewed By :,,,,,,
+Creation Date :,15-05-2026,,,,,
+Revision Date :,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+TS_04,Pre-Sales Lead Stage Progression,,,,,
+TestCaseID,TC_04_14,,,,,
+TestCaseName,PS-15: Lost sub-status without reason — validation error,,,,,
+BaseURL,https://tts-crm-ochre.vercel.app,,,,,
+PreCondition,Meeting Scheduled lead exists; logged in as ISA,,,,,
+Priority-Severity,High-High,,,,,
+TestingType,Negative,,,,,
+SI.No,Description,TestData,ExpectedResult,ActualResult,Status,DefectComments
+1,Open Meeting Scheduled lead,,Lead detail page will be displayed,Lead detail page will be displayed,pass,NA
+2,"Set sub-status to ""Lost""; leave reason empty",Sub Status: Lost | Reason: (empty),Reason field left empty,Reason field left empty,pass,NA
+3,Click Save,,"Warning message :"" A reason is required when sub-status is lost""","Warning message :"" A reason is required when sub-status is lost""",pass,NA
+Author : ,Mary Ferdinant Samson S,,,,,
+Reviewed By :,,,,,,
+Creation Date :,15-05-2026,,,,,
+Revision Date :,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+TS_04,Pre-Sales Lead Stage Progression,,,,,
+TestCaseID,TC_04_15,,,,,
+TestCaseName,PS-05: Capture all qualification fields after Connected call,,,,,
+BaseURL,https://tts-crm-ochre.vercel.app,,,,,
+PreCondition,Lead status = Connected; logged in as Pre-Sales agent,,,,,
+Priority-Severity,High-Critical,,,,,
+TestingType,Positive,,,,,
+SI.No,Description,TestData,ExpectedResult,ActualResult,Status,DefectComments
+1,Open Connected lead; click Edit,,Edit mode active; qualification fields visible,Edit mode active; qualification fields visible,pass,NA
+2,Fill City,City: Chennai,City dropdown accepts selection,City dropdown accepts selection,pass,NA
+3,Fill Property Name,Property Name: Sunrise Apartments,Text field accepts input,Text field accepts input,pass,NA
+4,Fill Project Type,Project Type: Residential,Dropdown accepts selection,Dropdown accepts selection,pass,NA
+5,Fill Configuration,Configuration: 2BHK,Dropdown accepts selection,Dropdown accepts selection,pass,NA
+6,Fill Budget Amount,Budget Amount: 1500000,Numeric field accepts value,Numeric field accepts value,pass,NA
+7,Fill Budget Range,Budget Range: 10L-25L,Dropdown accepts selection,Dropdown accepts selection,pass,NA
+8,Fill Possession Date,Possession Date: 2026-12-01,Date picker accepts date,Date picker accepts date,pass,NA
+9,Fill Requirement Type,Requirement Type: Full Home Interior,Dropdown accepts selection,Dropdown accepts selection,pass,NA
+10,Fill Project Description,Project Description: Complete interior for newly handed over 2BHK in Sunrise Apartments,Text area accepts input,Text area accepts input,pass,NA
+11,Click Save,,All qualification fields saved; no validation errors; Activity updated,All qualification fields saved; no validation errors; Activity updated,pass,NA
+Author : ,Mary Ferdinant Samson S,,,,,
+Reviewed By :,,,,,,
+Creation Date :,15-05-2026,,,,,
+Revision Date :,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+TS_04,Pre-Sales Lead Stage Progression,,,,,
+TestCaseID,TC_04_16,,,,,
+TestCaseName,Meeting Scheduled blocked without Email — validation error,,,,,
+BaseURL,https://tts-crm-ochre.vercel.app,,,,,
+PreCondition,Lead status = Qualified; all qualification fields filled; logged in as ISA,,,,,
+Priority-Severity,High-High,,,,,
+TestingType,Negative,,,,,
+SI.No,Description,TestData,ExpectedResult,ActualResult,Status,DefectComments
+1,Open Qualified lead; fill meeting fields but leave Email empty,Email: (empty) | Meeting Date: 2026-05-22 | Meeting Time: 11:00 AM | Meeting Location: Chennai Store | Meeting Type: Store Visit,Email field blank; other meeting fields filled,Email field blank; other meeting fields filled,pass,NA
+2,Attempt to change status to Meeting Scheduled,Status: Meeting Scheduled,"Warning Message: ""A contact email address is required before scheduling a meeting.""; stage move blocked","Warning Message: ""A contact email address is required before scheduling a meeting.""; stage move blocked",pass,NA
+Author : ,Mary Ferdinant Samson S,,,,,
+Reviewed By :,,,,,,
+Creation Date :,15-05-2026,,,,,
+Revision Date :,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+TS_04,Pre-Sales Lead Stage Progression,,,,,
+TestCaseID,TC_04_17,,,,,
+TestCaseName,Meeting Scheduled blocked without Meeting Date,,,,,
+BaseURL,https://tts-crm-ochre.vercel.app,,,,,
+PreCondition,Lead status = Qualified; email filled; logged in as ISA,,,,,
+Priority-Severity,High-High,,,,,
+TestingType,Negative,,,,,
+SI.No,Description,TestData,ExpectedResult,ActualResult,Status,DefectComments
+1,Open Qualified lead; fill email and other meeting fields; leave Meeting Date empty,Email: test@example.com | Meeting Date: (empty) | Meeting Time: 11:00 AM | Location: Chennai Store | Type: Store Visit,Meeting Date empty,Meeting Date empty,pass,NA
+2,Attempt to move to Meeting Scheduled,Status: Meeting Scheduled,"Warning Message: ""Meeting Date is required""; stage move blocked","Warning Message: ""Meeting Date is required""; stage move blocked",pass,NA
+Author : ,Mary Ferdinant Samson S,,,,,
+Reviewed By :,,,,,,
+Creation Date :,15-05-2026,,,,,
+Revision Date :,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+TS_04,Pre-Sales Lead Stage Progression,,,,,
+TestCaseID,TC_04_18,,,,,
+TestCaseName,Meeting Scheduled blocked without Meeting Time,,,,,
+BaseURL,https://tts-crm-ochre.vercel.app,,,,,
+PreCondition,Lead status = Qualified; email and date filled; logged in as ISA,,,,,
+Priority-Severity,High-High,,,,,
+TestingType,Negative,,,,,
+SI.No,Description,TestData,ExpectedResult,ActualResult,Status,DefectComments
+1,Open Qualified lead; fill all meeting fields except time,Email: test@example.com | Meeting Date: 2026-05-22 | Meeting Time: (empty) | Location: Chennai Store | Type: Store Visit,Meeting Time empty,Meeting Time empty,pass,NA
+2,Attempt to move to Meeting Scheduled,Status: Meeting Scheduled,"Warning Message: ""Meeting Time is required""; stage move blocked","Warning Message: ""Meeting Time is required""; stage move blocked",pass,NA
+Author : ,Mary Ferdinant Samson S,,,,,
+Reviewed By :,,,,,,
+Creation Date :,15-05-2026,,,,,
+Revision Date :,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+TS_04,Pre-Sales Lead Stage Progression,,,,,
+TestCaseID,TC_04_19,,,,,
+TestCaseName,Meeting Scheduled blocked without Meeting Location,,,,,
+BaseURL,https://tts-crm-ochre.vercel.app,,,,,
+PreCondition,"Lead status = Qualified; email, date, time filled; logged in as ISA",,,,,
+Priority-Severity,High-High,,,,,
+TestingType,Negative,,,,,
+SI.No,Description,TestData,ExpectedResult,ActualResult,Status,DefectComments
+1,Open Qualified lead; fill all meeting fields except location,Email: test@example.com | Meeting Date: 2026-05-22 | Meeting Time: 11:00 AM | Location: (not selected) | Type: Store Visit,Meeting Location not selected,Meeting Location not selected,pass,NA
+2,Attempt to move to Meeting Scheduled,Status: Meeting Scheduled,"Warning Message: ""Meeting Location is required""; stage move blocked","Warning Message: ""Meeting Location is required""; stage move blocked",pass,NA
+Author : ,Mary Ferdinant Samson S,,,,,
+Reviewed By :,,,,,,
+Creation Date :,15-05-2026,,,,,
+Revision Date :,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+TS_04,Pre-Sales Lead Stage Progression,,,,,
+TestCaseID,TC_04_20,,,,,
+TestCaseName,Meeting Scheduled blocked without Meeting Type,,,,,
+BaseURL,https://tts-crm-ochre.vercel.app,,,,,
+PreCondition,"Lead status = Qualified; email, date, time, location filled; logged in as ISA",,,,,
+Priority-Severity,High-High,,,,,
+TestingType,Negative,,,,,
+SI.No,Description,TestData,ExpectedResult,ActualResult,Status,DefectComments
+1,Open Qualified lead; fill all meeting fields except type,Email: test@example.com | Meeting Date: 2026-05-22 | Meeting Time: 11:00 AM | Location: Chennai Store | Type: (not selected),Meeting Type not selected,Meeting Type not selected,pass,NA
+2,Attempt to move to Meeting Scheduled,Status: Meeting Scheduled,"Warning Message: ""Meeting Type is required""; stage move blocked","Warning Message: ""Meeting Type is required""; stage move blocked",pass,NA
+Author : ,Mary Ferdinant Samson S,,,,,
+Reviewed By :,,,,,,
+Creation Date :,15-05-2026,,,,,
+Revision Date :,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+TS_04,Pre-Sales Lead Stage Progression,,,,,
+TestCaseID,TC_04_21,,,,,
+TestCaseName,BM auto-assigned when lead reaches converted,,,,,
+BaseURL,https://tts-crm-ochre.vercel.app,,,,,
+PreCondition,Lead moved to Meeting Scheduled; BM (Sales Manager) pool configured for Chennai Store,,,,,
+Priority-Severity,High-High,,,,,
+TestingType,Positive,,,,,
+SI.No,Description,TestData,ExpectedResult,ActualResult,Status,DefectComments
+1,"After moving lead to Converted, observe Business Manager field",,Business Manager field auto-populated with assigned BM name based on meeting location store,Business Manager field auto-populated with assigned BM name based on meeting location store,pass,NA
+2,Verify BM assignment is from correct store pool,Meeting Location: Chennai OMR Studio,Assigned BM is tagged to Chennai Store as their primary store,Assigned BM is tagged to Chennai Store as their primary store,pass,NA
+3,Verify Activity History logs BM assignment,,Activity History shows BM assigned entry,Activity History shows BM assigned entry,pass,NA
+Author : ,Mary Ferdinant Samson S,,,,,
+Reviewed By :,,,,,,
+Creation Date :,15-05-2026,,,,,
+Revision Date :,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+TS_04,Pre-Sales Lead Stage Progression,,,,,
+TestCaseID,TC_04_22,,,,,
+TestCaseName,Lead Source dropdown on lead detail page — verify all options,,,,,
+BaseURL,https://tts-crm-ochre.vercel.app,,,,,
+PreCondition,Any lead open in edit mode,,,,,
+Priority-Severity,Medium-Medium,,,,,
+TestingType,Positive,,,,,
+SI.No,Description,TestData,ExpectedResult,ActualResult,Status,DefectComments
+1,Open any lead; click Edit,,Edit mode active,,,NA
+2,Click Lead Source dropdown on detail page,,Dropdown expands,,,NA
+3,Verify all Lead Source options,"Expected: Google Ads, Facebook Ads, Organic, Referral, Walk-in, Others",All 6 options visible on detail page Lead Source dropdown (consistent with Quick Lead popup),,,NA
+Author : ,Mary Ferdinant Samson S,,,,,
+Reviewed By :,,,,,,
+Creation Date :,15-05-2026,,,,,
+Revision Date :,,,,,,

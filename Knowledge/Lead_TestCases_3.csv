@@ -1,0 +1,129 @@
+﻿,,,,,,
+TS_03,Duplicate and Re-enquiry Logic ,,,,,
+TestCaseID,TC_03_01,,,,,
+TestCaseName,"Same phone + same city → re-enquiry count updated, no new lead created",,,,,
+BaseURL,https://tts-crm-ochre.vercel.app,,,,,
+PreCondition,Contact with phone 9111111111 exists; has open Lead in Chennai; logged in as Pre-Sales Manager,,,,,
+Priority-Severity,High-Critical,,,,,
+TestingType,Positive,,,,,
+SI.No,Description,TestData,ExpectedResult,ActualResult,Status,DefectComments
+1,Login as Pre-Sales Manager; click Create Lead,Role: Pre-Sales Manager,Quick Add Lead popup opens,,,NA
+2,Enter same phone number and same city as existing lead,Full Name: Repeat User | Phone: 9111111111 | Lead Source: Google Ads | City: Chennai,Fields accepted in popup,,,NA
+3,"Click ""Create Lead Now""",,System detects: same phone + same city → NO new lead created; re-enquiry count incremented on existing lead,,,NA
+4,Navigate to Leads list; open existing lead for phone 9111111111,,Re-enquiry count on existing lead incremented by 1; re-enquiry date updated to today,,,NA
+5,Verify only ONE lead exists for this phone + city combination,,No duplicate lead in Leads list; single record for 9111111111 in Chennai,,,NA
+,,,,,,
+TS_03,Duplicate and Re-enquiry Logic (No Re-enquiry Window),,,,,
+TestCaseID,TC_03_02,,,,,
+TestCaseName,Same phone + different city → new lead created under existing Contact,,,,,
+BaseURL,https://tts-crm-ochre.vercel.app,,,,,
+PreCondition,Contact with phone 9222222222 exists; has open Lead in Chennai; logged in as Pre-Sales Manager,,,,,
+Priority-Severity,High-Critical,,,,,
+TestingType,Positive,,,,,
+SI.No,Description,TestData,ExpectedResult,ActualResult,Status,DefectComments
+1,Login as Pre-Sales Manager; click Create Lead,Role: Pre-Sales Manager,Quick Add Lead popup opens,,,NA
+2,Enter same phone but different city,Full Name: Priya S | Phone: 9222222222 | Lead Source: Organic | City: Hyderabad,Fields accepted in popup,,,NA
+3,"Click ""Create Lead Now""",,"System detects same phone but different city → NEW lead created under existing Contact; toast ""Lead created successfully""",,,NA
+4,Navigate to Leads list,,"Two leads exist for phone 9222222222: one in Chennai, one in Hyderabad",,,NA
+5,Login as Admin; navigate to Contacts; search phone 9222222222,Role: Admin,Single Contact record with phone 9222222222 shows 2 leads linked under it,,,NA
+,,,,,,
+TS_03,Duplicate and Re-enquiry Logic (No Re-enquiry Window),,,,,
+TestCaseID,TC_03_03,,,,,
+TestCaseName,Same phone + same city + different project type → re-enquiry (NOT new lead),,,,,
+BaseURL,https://tts-crm-ochre.vercel.app,,,,,
+PreCondition,Contact with phone 9333333333 has open Lead in Chennai with Project Type Residential; logged in as Pre-Sales Manager,,,,,
+Priority-Severity,High-Critical,,,,,
+TestingType,Positive,,,,,
+SI.No,Description,TestData,ExpectedResult,ActualResult,Status,DefectComments
+1,"Click Create Lead; enter same phone, same city, but different project type",Phone: 9333333333 | City: Chennai | Project Type: Commercial,Fields accepted in popup,,,NA
+2,"Click ""Create Lead Now""",,System checks: same phone + same city → re-enquiry; project type is NOT a factor in duplicate check; re-enquiry count updated on existing lead; NO new lead created,,,NA
+3,Verify Leads list,,Only ONE lead for phone 9333333333 in Chennai; no new lead with Project Type Commercial created,,,NA
+4,Open existing lead; verify re-enquiry count updated,,Re-enquiry count incremented; not a separate new lead,,,NA
+,,,,,,
+TS_03,Duplicate and Re-enquiry Logic (No Re-enquiry Window),,,,,
+TestCaseID,TC_03_04,,,,,
+TestCaseName,Same phone + same city + different name → re-enquiry (name is irrelevant),,,,,
+BaseURL,https://tts-crm-ochre.vercel.app,,,,,
+PreCondition,"Contact with phone 9444444444 has open Lead in Chennai under name ""Raj Kumar""; logged in as Pre-Sales Manager",,,,,
+Priority-Severity,High-High,,,,,
+TestingType,Positive,,,,,
+SI.No,Description,TestData,ExpectedResult,ActualResult,Status,DefectComments
+1,"Click Create Lead; enter same phone, same city, but completely different name",Full Name: Different Name | Phone: 9444444444 | City: Chennai | Lead Source: Referral,Fields accepted,,,NA
+2,"Click ""Create Lead Now""",,System checks phone + city ONLY; name difference is irrelevant; same phone + same city → re-enquiry count updated; NO new lead created,,,NA
+3,Verify Leads list,,"No new lead ""Different Name"" in Chennai; existing lead re-enquiry count incremented",,,NA
+,,,,,,
+TS_03,Duplicate and Re-enquiry Logic (No Re-enquiry Window),,,,,
+TestCaseID,TC_03_05,,,,,
+TestCaseName,Same phone + same city + different email → re-enquiry (email is irrelevant),,,,,
+BaseURL,https://tts-crm-ochre.vercel.app,,,,,
+PreCondition,Contact with phone 9555555555 has open Lead in Hyderabad; logged in as Pre-Sales Manager,,,,,
+Priority-Severity,High-High,,,,,
+TestingType,Positive,,,,,
+SI.No,Description,TestData,ExpectedResult,ActualResult,Status,DefectComments
+1,"Click Create Lead; enter same phone, same city, different email",Phone: 9555555555 | City: Hyderabad | Email: different@email.com,Fields accepted in popup,,,NA
+2,"Click ""Create Lead Now""",,Email is not a duplicate check factor; same phone + same city → re-enquiry updated on existing lead; NO new lead created,,,NA
+3,Verify Leads list,,Single lead for phone 9555555555 in Hyderabad; re-enquiry count incremented,,,NA
+,,,,,,
+TS_03,Duplicate and Re-enquiry Logic (No Re-enquiry Window),,,,,
+TestCaseID,TC_03_06,,,,,
+TestCaseName,Completely new phone → new Contact + new Lead created,,,,,
+BaseURL,https://tts-crm-ochre.vercel.app,,,,,
+PreCondition,Phone 9666666666 does not exist anywhere in system; logged in as Pre-Sales Manager,,,,,
+Priority-Severity,High-Critical,,,,,
+TestingType,Positive,,,,,
+SI.No,Description,TestData,ExpectedResult,ActualResult,Status,DefectComments
+1,Click Create Lead; enter brand new phone,Full Name: Brand New | Phone: 9666666666 | Lead Source: Walk-in | City: Bengaluru,Fields accepted,,,NA
+2,"Click ""Create Lead Now""",,"No existing Contact found for 9666666666 → NEW Contact + NEW Lead created; toast ""Lead created successfully""",,,NA
+3,Login as Admin; navigate to Contacts; search 9666666666,Role: Admin,New Contact record exists; 1 lead linked under it,,,NA
+4,Verify Lead in Leads list,,"New Lead ""Brand New"" visible in Leads list with Fresh Lead status",,,NA
+,,,,,,
+TS_03,Duplicate and Re-enquiry Logic (No Re-enquiry Window),,,,,
+TestCaseID,TC_03_07,,,,,
+TestCaseName,Lead converted to Opportunity — same phone + same city → new lead created,,,,,
+BaseURL,https://tts-crm-ochre.vercel.app,,,,,
+PreCondition,Contact with phone 9777777777 has Lead in Chennai already converted to Opportunity; logged in as Pre-Sales Manager,,,,,
+Priority-Severity,High-Critical,,,,,
+TestingType,Positive,,,,,
+SI.No,Description,TestData,ExpectedResult,ActualResult,Status,DefectComments
+1,Click Create Lead; enter same phone and same city as converted lead,Phone: 9777777777 | City: Chennai | Full Name: Re-enquiry After Conv,Fields accepted,,,NA
+2,"Click ""Create Lead Now""",,System detects existing Contact; lead previously converted to Opportunity → NEW Lead created under existing Contact; toast success shown,,,NA
+3,Verify Leads list,,New Lead visible in Leads list with Fresh Lead status; Opportunity from previous conversion still exists separately,,,NA
+4,Login as Admin; navigate to Contacts; open Contact for 9777777777,,"Contact record shows 2 leads linked: one converted, one new Fresh Lead",,,NA
+,,,,,,
+TS_03,Duplicate and Re-enquiry Logic (No Re-enquiry Window),,,,,
+TestCaseID,TC_03_08,,,,,
+TestCaseName,Opportunity Closed Won — same phone + same city → new lead created,,,,,
+BaseURL,https://tts-crm-ochre.vercel.app,,,,,
+PreCondition,Contact with phone 9888888888 has Opportunity marked Closed Won; logged in as Pre-Sales Manager,,,,,
+Priority-Severity,High-Critical,,,,,
+TestingType,Positive,,,,,
+SI.No,Description,TestData,ExpectedResult,ActualResult,Status,DefectComments
+1,Click Create Lead; enter same phone and city as Closed Won contact,Phone: 9888888888 | City: Bengaluru | Full Name: Post Won Re-enquiry,Fields accepted,,,NA
+2,"Click ""Create Lead Now""",,System detects Opportunity = Closed Won → NEW Lead created under existing Contact; toast success,,,NA
+3,Verify new Lead in Leads list,,New Lead with Fresh Lead status in list; Closed Won Opportunity still intact,,,NA
+,,,,,,
+TS_03,Duplicate and Re-enquiry Logic (No Re-enquiry Window),,,,,
+TestCaseID,TC_03_09,,,,,
+TestCaseName,Same phone + same city + lead is Junk/Lost → re-enquiry or new lead behavior,,,,,
+BaseURL,https://tts-crm-ochre.vercel.app,,,,,
+PreCondition,Contact with phone 9900000001 has Lead in Chennai with sub-status Junk; logged in as Pre-Sales Manager,,,,,
+Priority-Severity,High-High,,,,,
+TestingType,Positive,,,,,
+SI.No,Description,TestData,ExpectedResult,ActualResult,Status,DefectComments
+1,Click Create Lead; enter same phone and same city,Phone: 9900000001 | City: Chennai,Fields accepted,,,NA
+2,"Click ""Create Lead Now""",,"System detects existing lead in Junk status; verify whether: (a) re-enquiry count updated on Junk lead, OR (b) new lead created — document actual behavior for test evidence",,,NA
+3,Verify Leads list and existing lead status,,Actual behavior documented; expected: new lead created since Junk leads are treated as inactive (verify against business rule),,,NA
+,,,,,,
+TS_03,Duplicate and Re-enquiry Logic (No Re-enquiry Window),,,,,
+TestCaseID,TC_03_10,,,,,
+TestCaseName,Multiple cities — same phone creates separate lead per city,,,,,
+BaseURL,https://tts-crm-ochre.vercel.app,,,,,
+PreCondition,Contact with phone 9900000002 has leads in Chennai and Hyderabad; logged in as Pre-Sales Manager,,,,,
+Priority-Severity,High-High,,,,,
+TestingType,Positive,,,,,
+SI.No,Description,TestData,ExpectedResult,ActualResult,Status,DefectComments
+1,Create lead with phone 9900000002 and city Chennai,Phone: 9900000002 | City: Chennai,Re-enquiry count updated on Chennai lead (if same city exists) OR new lead created,,,NA
+2,Create lead with same phone but city Hyderabad,Phone: 9900000002 | City: Hyderabad,Hyderabad is different city → new lead created under same Contact,,,NA
+3,Create lead with same phone but city Bengaluru,Phone: 9900000002 | City: Bengaluru,Bengaluru is different city → another new lead created under same Contact,,,NA
+4,Login as Admin; navigate to Contacts; open Contact for 9900000002,,"Single Contact record shows 3 leads linked: Chennai, Hyderabad, Bengaluru",,,NA
+,,,,,,
